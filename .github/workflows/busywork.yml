@@ -1,0 +1,30 @@
+name: busywork
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: fetch source
+      uses: actions/checkout@v2
+      with:
+        path: source
+
+    - name: set up miniconda
+      uses: goanpeca/setup-miniconda@v1
+      with:
+        auto-update-conda: true
+        python-version: 3.6
+
+    - name: set up conda build
+      run: conda install -n base -q -y -c defaults --override-channels conda-build conda-verify
+
+    - name: build conda package
+      run: |
+        cd source
+        conda build \
+          -c https://conda.anaconda.org/conda-forge \
+          -c https://conda.anaconda.org/bioconda \
+          -c defaults \
+          --override-channels --output-folder built-package ci/recipe
