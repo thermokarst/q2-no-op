@@ -39,7 +39,7 @@ jobs:
       - name: create conda testing env
         run: conda create -q -y -p ./test-env
 
-      - name: foo
+      - name: install plugin and dependencies
         run: |
           conda install -p ./test-env -q -y ./build-package \
             -c https://conda.anaconda.org/conda-forge \
