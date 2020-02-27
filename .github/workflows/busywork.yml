@@ -51,6 +51,12 @@ jobs:
         os: [macos-latest, ubuntu-18.04]
 
     steps:
+      - name: set up miniconda
+        uses: goanpeca/setup-miniconda@v1
+        with:
+          auto-update-conda: true
+          python-version: 3.6
+
       - name: fetch built package
         uses: actions/download-artifact@v1
         with:
