@@ -54,7 +54,7 @@ jobs:
         run: ls -lah
 
       - name: unzip built package
-        run: unzip ./package/package.zip
+        run: unzip ./package/package.zip -d ./foo
 
       - name: debug
         run: |
