@@ -29,10 +29,10 @@ jobs:
             -c https://conda.anaconda.org/bioconda \
             -c https://conda.anaconda.org/qiime2 \
             -c defaults \
-            --override-channels --output-folder ./built-package ci/recipe
+            --override-channels --output-folder ../built-package ci/recipe
 
       - name: debug
-        run: ls -lah built-package
+        run: ls -lah .
 
       - name: zip built package
         run: zip -r built-package.zip built-package
