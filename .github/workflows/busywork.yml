@@ -58,8 +58,8 @@ jobs:
 
       - name: debug
         run: |
-        ls -lah .
-        ls -lah ./built-conda-package
+          ls -lah .
+          ls -lah ./built-conda-package
 
       - name: install plugin and dependencies
         run: |
