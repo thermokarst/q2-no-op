@@ -29,13 +29,33 @@ jobs:
             -c https://conda.anaconda.org/bioconda \
             -c https://conda.anaconda.org/qiime2 \
             -c defaults \
-            --override-channels --output-folder ../built-package ci/recipe
+            --override-channels --output-folder ../package ci/recipe
+
+      - name: zip built package
+        run: zip -r ./package.zip ./package
+
+      - name: store built package
+        uses: actions/upload-artifact@v1
+        with:
+          name: package
+          path: ./package.zip
 
   test:
     needs: build
     runs-on: ubuntu-latest
 
     steps:
+      - name: fetch built package
+        uses: actions/download-artifact@v1
+        with:
+          name: package
+
+      - name: debug
+        run: ls -lah
+
+      - name: unzip built package
+        run: unzip ./package/package.zip -d .
+
       - name: debug
         run: ls -lah
 
