@@ -31,15 +31,6 @@ jobs:
             -c defaults \
             --override-channels --output-folder ../built-package ci/recipe
 
-      - name: zip built package
-        run: zip -r ./built-package.zip ./built-package
-
-      - name: store built package
-        uses: actions/upload-artifact@v1
-        with:
-          name: built-conda-package
-          path: ./built-package.zip
-
   test:
     needs: build
     runs-on: ubuntu-latest
@@ -48,23 +39,10 @@ jobs:
       - name: create conda testing env
         run: conda create -q -y -p ./test-env
 
-      - name: fetch built package
-        uses: actions/download-artifact@v1
-        with:
-          name: built-conda-package
-
-      - name: unzip built package
-        run: unzip ./built-conda-package/built-package.zip
-
-      - name: debug
-        run: |
-          ls -lah .
-          ls -lah ./built-conda-package
-
       - name: install plugin and dependencies
         run: |
           conda install -p ./test-env -q -y \
-            -c ./build-package \
+            -c ./built-package \
             -c https://conda.anaconda.org/conda-forge \
             -c https://conda.anaconda.org/bioconda \
             -c https://conda.anaconda.org/qiime2 \
