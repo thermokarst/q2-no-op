@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   busywork2-action-playground:
-  steps:
-    - name: bw2-action-playground
-      uses: thermokarst/busywork_action_playground
+    steps:
+      - name: bw2-action-playground
+        uses: thermokarst/busywork_action_playground
+  
