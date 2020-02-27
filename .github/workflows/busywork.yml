@@ -31,6 +31,9 @@ jobs:
             -c defaults \
             --override-channels --output-folder ./built-package ci/recipe
 
+      - name: debug
+        run: ls -lah built-package
+
       - name: zip built package
         run: zip -r built-package.zip built-package
 
