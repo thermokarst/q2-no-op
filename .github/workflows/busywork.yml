@@ -54,12 +54,10 @@ jobs:
         run: ls -lah
 
       - name: unzip built package
-        run: unzip ./package/package.zip -d .
+        run: unzip ./package/package.zip -d ..
 
       - name: debug
-        run: |
-          ls -lah
-          ls -lah package
+        run: ls -lah
 
       - name: create conda testing env
         run: conda create -q -y -p ./test-env
@@ -67,7 +65,7 @@ jobs:
       - name: install plugin and dependencies
         run: |
           conda install -p ./test-env -q -y \
-            -c ./built-package \
+            -c ./package \
             -c https://conda.anaconda.org/conda-forge \
             -c https://conda.anaconda.org/bioconda \
             -c https://conda.anaconda.org/qiime2 \
