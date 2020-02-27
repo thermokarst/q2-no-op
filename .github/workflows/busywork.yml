@@ -12,4 +12,4 @@ jobs:
 
     steps:
       - name: bw2-action-playground
-        uses: thermokarst/busywork_action_playground
+        uses: thermokarst/busywork_action_playground@v1
