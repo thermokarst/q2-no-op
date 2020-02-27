@@ -36,6 +36,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: debug
+        run: ls -lah
+
       - name: create conda testing env
         run: conda create -q -y -p ./test-env
 
