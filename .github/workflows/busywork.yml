@@ -25,9 +25,9 @@ jobs:
         run: |
           cd source
           conda build \
-            -c https://conda.anaconda.org/conda-forge \
-            -c https://conda.anaconda.org/bioconda \
-            -c https://conda.anaconda.org/qiime2 \
+            -c conda-forge \
+            -c bioconda \
+            -c qiime2 \
             -c defaults \
             --override-channels --output-folder ../package ci/recipe
 
@@ -60,9 +60,9 @@ jobs:
         run: |
           conda install -p ./test-env -q -y \
             -c ./conda-build/package \
-            -c https://conda.anaconda.org/conda-forge \
-            -c https://conda.anaconda.org/bioconda \
-            -c https://conda.anaconda.org/qiime2 \
+            -c conda-forge \
+            -c bioconda \
+            -c qiime2 \
             -c defaults \
             --override-channels q2-no-op pytest
 
