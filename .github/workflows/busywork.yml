@@ -64,7 +64,9 @@ jobs:
             -c https://conda.anaconda.org/bioconda \
             -c https://conda.anaconda.org/qiime2 \
             -c defaults \
-            --override-channels q2-no-op pytest nose
+            --override-channels q2-no-op pytest
 
       - name: run unit tests
-        run: py.test --pyargs q2_no_op
+        run: |
+          source activate ./test-env
+          py.test --pyargs q2_no_op
