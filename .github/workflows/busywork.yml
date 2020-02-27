@@ -67,6 +67,4 @@ jobs:
             --override-channels q2-no-op pytest
 
       - name: run unit tests
-        run: |
-          source activate ./test-env
-          py.test --pyargs q2_no_op
+        run: conda run -p ./test-env py.test --pyargs q2_no_op
