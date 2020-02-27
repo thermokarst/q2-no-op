@@ -52,13 +52,9 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: built-conda-package
-          path: ./built-package.zip
-
-      - name: debug
-        run: ls -lah
 
       - name: unzip built package
-        run: unzip ./built-package.zip
+        run: unzip .conda-build-package/built-package.zip
 
       - name: install plugin and dependencies
         run: |
