@@ -4,7 +4,12 @@ on: [push]
 
 jobs:
   busywork2-action-playground:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-18.04]
+
     steps:
       - name: bw2-action-playground
         uses: thermokarst/busywork_action_playground
-  
