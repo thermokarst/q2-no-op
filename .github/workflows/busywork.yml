@@ -57,7 +57,9 @@ jobs:
         run: unzip ./package/package.zip -d .
 
       - name: debug
-        run: ls -lah
+        run: |
+          ls -lah
+          ls -lah package
 
       - name: create conda testing env
         run: conda create -q -y -p ./test-env
