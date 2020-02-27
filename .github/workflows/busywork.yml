@@ -60,6 +60,7 @@ jobs:
         run: |
           ls -lah
           ls -lah package
+          ls -lah foo
 
       - name: create conda testing env
         run: conda create -q -y -p ./test-env
