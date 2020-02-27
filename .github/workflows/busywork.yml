@@ -32,7 +32,7 @@ jobs:
             --override-channels --output-folder ../built-package ci/recipe
 
       - name: zip built package
-        run: zip -r built-package.zip built-package
+        run: zip -r ./built-package.zip ./built-package
 
       - name: store built package
         uses: actions/upload-artifact@v1
@@ -52,10 +52,13 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: built-conda-package
-          path: built-package.zip
+          path: ./built-package.zip
+
+      - name: debug
+        run: ls -lah
 
       - name: unzip built package
-        run: unzip built-package.zip .
+        run: unzip ./built-package.zip .
 
       - name: install plugin and dependencies
         run: |
