@@ -54,7 +54,7 @@ jobs:
           name: built-conda-package
 
       - name: unzip built package
-        run: unzip .conda-build-package/built-package.zip
+        run: unzip ./conda-build-package/built-package.zip
 
       - name: install plugin and dependencies
         run: |
