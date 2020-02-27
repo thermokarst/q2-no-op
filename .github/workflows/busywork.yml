@@ -56,6 +56,11 @@ jobs:
       - name: unzip built package
         run: unzip ./built-conda-package/built-package.zip
 
+      - name: debug
+        run: |
+        ls -lah .
+        ls -lah ./built-conda-package
+
       - name: install plugin and dependencies
         run: |
           conda install -p ./test-env -q -y \
