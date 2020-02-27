@@ -35,13 +35,13 @@ jobs:
             --override-channels --output-folder ../package ci/recipe
 
       - name: zip built package
-        run: zip -r ./package.zip ./package
+        run: zip -r ./package-${{ matrix.os }}.zip ./package
 
       - name: store built package
         uses: actions/upload-artifact@v1
         with:
-          name: package
-          path: ./package.zip
+          name: package-${{ matrix.os }}
+          path: ./package-${{ matrix.os }}.zip
 
   test:
     needs: build
@@ -50,15 +50,14 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-18.04]
 
-
     steps:
       - name: fetch built package
         uses: actions/download-artifact@v1
         with:
-          name: package
+          name: package-${{ matrix.os }}
 
       - name: unzip built package
-        run: unzip ./package/package.zip -d ./conda-build
+        run: unzip ./package-${{ matrix.os }}/package-${{ matrix.os }}.zip -d ./conda-build
 
       - name: create conda testing env
         run: conda create -q -y -p ./test-env
