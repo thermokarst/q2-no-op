@@ -5,13 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+      # This checkout is only necessary for "private" actions
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: Busywork
         uses: ./.github/actions/busywork
-        id: hello
-        with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
