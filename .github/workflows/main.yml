@@ -1,9 +1,9 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  qiime2_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name:  Build, test, and host a conda package
     steps:
       # This checkout is only necessary for "private" actions
       - name: Checkout
