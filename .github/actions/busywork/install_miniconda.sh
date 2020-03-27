@@ -18,5 +18,3 @@ chmod +x miniconda.sh
 ./miniconda.sh -b -p /opt/miniconda
 
 conda init
-conda info
-echo "done"
