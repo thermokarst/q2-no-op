@@ -9,7 +9,8 @@ async function main() {
     await exec.exec('./install_miniconda.sh', [], opts)
     // TODO: how to error if the exec above fails?
 
-    await exec.exec('./build_package.sh', [], opts)
+    // CWD: source root
+    await exec.exec('./build_package.sh', [])
     // TODO: how to error if the exec above fails?
 
   } catch (error) {
