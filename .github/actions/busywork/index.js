@@ -3,7 +3,7 @@ const exec = require('@actions/exec');
 
 
 try {
-  exec.exec('sh doit.sh')
+  exec.exec('./doit.sh')
 } catch (error) {
   core.setFailed(error.message);
 }
