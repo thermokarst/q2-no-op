@@ -3,19 +3,19 @@ const exec = require('@actions/exec');
 const conda = require('action-setup-conda')
 
 try {
-  let minicondaVersion: string = '';
-  let condaVersion: string = '';
-  let condaBuildVersion: string = '';
-  let pythonVersion: string = '';
-  let activateEnvironment: string = 'test';
-  let environmentFile: string = '';
+  let minicondaVersion = '';
+  let condaVersion = '';
+  let condaBuildVersion = '';
+  let pythonVersion = '';
+  let activateEnvironment = 'test';
+  let environmentFile = '';
 
   // Conda configuration
-  let autoActivateBase: string = 'true';
-  let autoUpdateConda: string = 'false';
-  let condaFile: string = '';
-  let channels: string = '';
-  let removeProfiles: string =  'true';
+  let autoActivateBase = 'true';
+  let autoUpdateConda = 'false';
+  let condaFile = '';
+  let channels = '';
+  let removeProfiles =  'true';
 
   const condaConfig = {
     auto_activate_base: autoActivateBase,
