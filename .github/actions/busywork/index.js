@@ -1,6 +1,6 @@
-const core = require('@actions/core');
-const exec = require('@actions/exec');
-const conda = require('action-setup-conda')
+import * as core from "@actions/core";
+import * as exec from "@actions/exec";
+import * as conda from 'action-setup-conda';
 
 try {
   let minicondaVersion = '';
