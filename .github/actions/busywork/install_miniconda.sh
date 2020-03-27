@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e -v
+set -e +v
 
 
 case `uname` in
