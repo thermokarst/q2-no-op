@@ -10,7 +10,7 @@ async function main() {
     // TODO: how to error if the exec above fails?
 
     // CWD: source root
-    await exec.exec('./build_package.sh', [])
+    await exec.exec('.github/actions/busywork/build_package.sh', [])
     // TODO: how to error if the exec above fails?
 
   } catch (error) {
