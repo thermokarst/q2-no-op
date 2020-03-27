@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e -v
+
 
 case `uname` in
     Linux)
@@ -15,6 +17,10 @@ esac
 
 wget -O miniconda.sh $CONDA_URL
 chmod +x miniconda.sh
+
 ./miniconda.sh -b -p /opt/miniconda
 
 conda init
+
+conda upgrade -n base -q -y -c defaults --override-channels conda
+conda install -n base -q -y -c defaults --override-channels conda-build conda-verify
