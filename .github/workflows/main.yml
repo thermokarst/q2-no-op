@@ -13,6 +13,7 @@ jobs:
         os: [macos-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
+    - uses: actions/checkout@v2
     - uses: thermokarst/busywork2_action_playground@master
       with: 
         plugin-name: q2-no-op
