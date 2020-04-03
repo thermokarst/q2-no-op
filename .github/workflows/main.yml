@@ -1,12 +1,19 @@
-on: [push]
+name: build-test
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - 'releases/*'
 
 jobs:
-  qiime2_job:
-    runs-on: ubuntu-latest
-    name: conda packaging
+  build-and-test-example-plugin:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
     steps:
-      # This checkout is only necessary for "private" actions
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Busywork
-        uses: ./.github/actions/busywork
+    - uses: actions/checkout@v2
+    - uses: thermokarst/busywork2_action_playground@master
+      with: 
+        plugin-name: q2-no-op
