@@ -17,3 +17,8 @@ jobs:
     - uses: thermokarst/busywork2_action_playground@master
       with: 
         plugin-name: q2-no-op
+    - name: test built package
+      run: |
+        conda env create -n testing python=3.6
+        conda install -n testing q2-no-op pytest
+        conda run -n testing pytest --pyargs q2_no_op
