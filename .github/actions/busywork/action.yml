@@ -1,5 +1,0 @@
-name: 'conda packaging'
-description: 'Build, test, and distribute QIIME 2 plugin conda package'
-runs:
-  using: 'node12'
-  main: 'index.js'
