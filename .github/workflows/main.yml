@@ -17,3 +17,4 @@ jobs:
     - uses: thermokarst/busywork2_action_playground@master
       with: 
         plugin-name: q2-no-op
+        additional-tests: pytest --pyargs q2_no_op
