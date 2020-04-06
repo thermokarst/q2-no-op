@@ -7,7 +7,25 @@ on:
       - 'releases/*'
 
 jobs:
+  lint-plugin:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: set up python 3.6
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+    - name: install dependencies
+      run: python -m pip install --upgrade pip
+    - name: lint
+      run: |
+        pip install -q https://github.com/qiime2/q2lint/archive/master.zip
+        q2lint
+        pip install -q flake8
+        flake8
+
   build-and-test-example-plugin:
+    needs: lint-plugin
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
