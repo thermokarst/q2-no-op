@@ -10,11 +10,11 @@ jobs:
   build-and-test-example-plugin:
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest]
+        os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
-    - uses: thermokarst/busywork2_action_playground@master
+    - uses: qiime2/action-library-packaging@alpha1
       with: 
         plugin-name: q2-no-op
         additional-tests: pytest --pyargs q2_no_op
