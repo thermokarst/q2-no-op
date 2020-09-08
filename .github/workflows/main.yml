@@ -35,5 +35,4 @@ jobs:
     - uses: qiime2/action-library-packaging@upload-package
       with:
         package-name: q2-no-op
-        additional-tests: pytest --pyargs q2_no_op
         library-token: ${{ secrets.LIBRARY_TOKEN }}
