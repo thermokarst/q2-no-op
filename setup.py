@@ -10,7 +10,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="q2-no-op",
-    version="0.0.1",
+    version="0.0.2",
     packages=find_packages(),
     author="Matthew Ryan Dillon",
     author_email="matthewrdillon@gmail.com",
