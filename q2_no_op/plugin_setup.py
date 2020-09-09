@@ -11,7 +11,7 @@ import qiime2.plugin
 
 plugin = qiime2.plugin.Plugin(
     name='no-op',
-    version='0.0.1',
+    version='0.0.2',
     website='https://github.com/thermokarst/q2-no-op',
     package='q2_no_op',
     user_support_text=None,

@@ -32,7 +32,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
-    - uses: qiime2/action-library-packaging@upload-package
+    - uses: qiime2/action-library-packaging@alpha1
       with:
         package-name: q2-no-op
         library-token: ${{ secrets.LIBRARY_TOKEN }}
